@@ -26,12 +26,5 @@ namespace WebScraper.Controllers
         {
             return View();
         }
-
-        public Action Scrape()
-        {
-            Scraper myScraper = new Scraper();
-            myScraper.Scrape();
-            return null;
-        }
     }
 }

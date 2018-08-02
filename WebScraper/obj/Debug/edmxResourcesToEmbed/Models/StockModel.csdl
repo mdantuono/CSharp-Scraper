@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StockDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Symbol" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Change" />
+      <PropertyRef Name="PChange" />
+      <PropertyRef Name="Volume" />
+    </Key>
+    <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Change" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="PChange" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Volume" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Stocks" EntityType="Self.Stock" />
+  </EntityContainer>
+</Schema>

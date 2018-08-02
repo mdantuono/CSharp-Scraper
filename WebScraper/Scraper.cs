@@ -15,7 +15,7 @@ namespace WebScraper
 
         public void Scrape()
         {
-            // Try running it headless (--headless) in ChromeOptions
+            // Add (--headless) to chromeoptions to block window from popping up
             //ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--headless");
 
@@ -60,6 +60,11 @@ namespace WebScraper
             }
 
             Console.WriteLine("\nI gotchu fam.\n");
+        }
+
+        public void TestScrape()
+        {
+            return;
         }
     }
 
