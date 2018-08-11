@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebScraper.Models;
 
 namespace WebScraper
 {
@@ -62,9 +63,20 @@ namespace WebScraper
             Console.WriteLine("\nI gotchu fam.\n");
         }
 
-        public void TestScrape()
+        public Stock TestScrape()
         {
-            return;
+            Stock newStock = new Stock
+            {
+                Symbol = "TSLA",
+                Price = 355,
+                Change = 3.04,
+                PChange = 1.00,
+                Volume = 1000
+            };
+
+            return newStock;
+
+            
         }
     }
 

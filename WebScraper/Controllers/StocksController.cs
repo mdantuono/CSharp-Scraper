@@ -124,18 +124,19 @@ namespace WebScraper.Controllers
             base.Dispose(disposing);
         }
 
-        public Action Scrape()
+        public ActionResult Scrape()
         {
             Scraper myScraper = new Scraper();
             myScraper.Scrape();
-            return null;
+            return RedirectToAction("Index");
         }
 
-        public Action TestScrape()
+        public ActionResult TestScrape()
         {
-            // Must create function to add a stock to the database
-            db.Stocks.Add(null);
-            return null;
+            Scraper testScraper = new Scraper();
+            Stock newStock = testScraper.TestScrape();
+            db.Stocks.Add(newStock);
+            return RedirectToAction("Index");
         }
     }
 }
