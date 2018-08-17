@@ -23,6 +23,7 @@ namespace WebScraper
             // Initiate new ChromeDriver called driver and navigate to login URL
             IWebDriver driver = new ChromeDriver();
             driver.Navigate().GoToUrl("https://login.yahoo.com/config/login?.src=finance&.intl=us&.done=https%3A%2F%2Ffinance.yahoo.com%2F");
+            driver.Manage().Window.Maximize(); 
 
             // Input username field, submit
             IWebElement username = driver.FindElement(By.Name("username"));
@@ -61,6 +62,7 @@ namespace WebScraper
             }
 
             Console.WriteLine("\nI gotchu fam.\n");
+            driver.Quit();
         }
 
         public Stock TestScrape()
