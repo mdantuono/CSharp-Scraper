@@ -133,16 +133,29 @@ namespace WebScraper.Controllers
             return RedirectToAction("Index");
         }
 
+        private static string connString = @"data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
+
         public ActionResult TestScrape()
         {
+            
             Scraper testScraper = new Scraper();
             Stock newStock = testScraper.TestScrape();
 
+            SqlConnection conn = new SqlConnection(connString);
             // Check if stock is already in database
-            //SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", ); needs connection string as second part of SqlCommand
-            
-            db.Stocks.Add(newStock);
-            db.SaveChanges();
+            conn.Open();
+            SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", conn); /*needs connection string as second part of SqlCommand*/
+            int stockExists = (int)checkIfStockExists.ExecuteScalar();
+            if (stockExists > 0)
+            {
+                SqlCommand editDuplicateStock = new SqlCommand("UPDATE Stock SET Shares += " + newStock.Shares + "WHERE (Symbol = " + newStock.Symbol + ")", conn);
+            }
+            else
+            {
+                db.Stocks.Add(newStock);
+                db.SaveChanges();
+            }
+            conn.Close();
             return RedirectToAction("Index"); 
             
             

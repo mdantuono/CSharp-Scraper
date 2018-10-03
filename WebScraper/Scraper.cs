@@ -68,7 +68,7 @@ namespace WebScraper
                 newStock.Price = price;
                 newStock.Change = change;
                 newStock.PChange = pchange;
-                newStock.Shares = "0";
+                newStock.Shares = "1";
                 stockList.Add(newStock);
             }
 
@@ -85,7 +85,7 @@ namespace WebScraper
                 Change = "3.04",
                 PChange = "1.00",
                 Shares = "10",
-                TotalValue = "1"
+                
             };
 
             return newStock;
