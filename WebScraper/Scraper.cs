@@ -84,7 +84,8 @@ namespace WebScraper
                 Price = "355.00",
                 Change = "3.04",
                 PChange = "1.00",
-                Volume = "1000"
+                Shares = "10",
+                TotalValue = "1"
             };
 
             return newStock;

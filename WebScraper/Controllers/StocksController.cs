@@ -139,11 +139,13 @@ namespace WebScraper.Controllers
             Stock newStock = testScraper.TestScrape();
 
             // Check if stock is already in database
-            SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", );
-
+            //SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", ); needs connection string as second part of SqlCommand
+            
             db.Stocks.Add(newStock);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index"); 
+            
+            
         }
     }
 }
