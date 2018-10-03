@@ -5,32 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="StockDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'StockDB.dbo.Stock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Stock">
           <Key>
-            <PropertyRef Name="Price" />
-            <PropertyRef Name="Change" />
-            <PropertyRef Name="PChange" />
-            <PropertyRef Name="Volume" />
             <PropertyRef Name="Symbol" />
           </Key>
           <Property Name="Symbol" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Price" Type="float" Nullable="false" />
-          <Property Name="Change" Type="float" Nullable="false" />
-          <Property Name="PChange" Type="float" Nullable="false" />
-          <Property Name="Volume" Type="float" Nullable="false" />
+          <Property Name="Price" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Change" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="PChange" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Volume" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityContainer Name="StockDBModelStoreContainer">
-          <EntitySet Name="Stock" EntityType="Self.Stock" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Stock].[Symbol] AS [Symbol], 
-    [Stock].[Price] AS [Price], 
-    [Stock].[Change] AS [Change], 
-    [Stock].[PChange] AS [PChange], 
-    [Stock].[Volume] AS [Volume]
-    FROM [dbo].[Stock] AS [Stock]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -38,17 +24,13 @@ warning 6002: The table/view 'StockDB.dbo.Stock' does not have a primary key def
       <Schema Namespace="StockDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Stock">
           <Key>
-            <PropertyRef Name="Price" />
-            <PropertyRef Name="Change" />
-            <PropertyRef Name="PChange" />
-            <PropertyRef Name="Volume" />
             <PropertyRef Name="Symbol" />
           </Key>
           <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Double" Nullable="false" />
-          <Property Name="Change" Type="Double" Nullable="false" />
-          <Property Name="PChange" Type="Double" Nullable="false" />
-          <Property Name="Volume" Type="Double" Nullable="false" />
+          <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Change" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="PChange" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Volume" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Stocks" EntityType="Self.Stock" />

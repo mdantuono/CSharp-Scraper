@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using WebScraper.Models;
 using System.Data.SqlClient;
 
+
 namespace WebScraper.Controllers
 {
     public class StocksController : Controller
@@ -136,6 +137,10 @@ namespace WebScraper.Controllers
         {
             Scraper testScraper = new Scraper();
             Stock newStock = testScraper.TestScrape();
+
+            // Check if stock is already in database
+            SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", "metadata=res://*/Models.StockModel.csdl|res://*/Models.StockModel.ssdl|res://*/Models.StockModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;");
+
             db.Stocks.Add(newStock);
             db.SaveChanges();
             return RedirectToAction("Index");

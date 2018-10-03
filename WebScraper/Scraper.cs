@@ -65,11 +65,11 @@ namespace WebScraper
                 var volume = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[7]/span")).Text;
                 Stock newStock = new Stock();
                 newStock.Symbol = symbol;
-                newStock.Price = decimal(price);
+                newStock.Price = price;
                 newStock.Change = change;
                 newStock.PChange = pchange;
                 newStock.Volume = volume;
-                stockList.Add();
+                stockList.Add(newStock);
             }
 
             driver.Quit();
@@ -81,10 +81,10 @@ namespace WebScraper
             Stock newStock = new Stock
             {
                 Symbol = "TSLA",
-                Price = 355.00M,
-                Change = 3.04M,
-                PChange = 1.00M,
-                Volume = 1000
+                Price = "355.00",
+                Change = "3.04",
+                PChange = "1.00",
+                Volume = "1000"
             };
 
             return newStock;
