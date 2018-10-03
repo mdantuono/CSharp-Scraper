@@ -3,12 +3,18 @@
   <EntityType Name="Stock">
     <Key>
       <PropertyRef Name="Symbol" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Change" />
+      <PropertyRef Name="PChange" />
+      <PropertyRef Name="Shares" />
+      <PropertyRef Name="TotalValue" />
     </Key>
     <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Change" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="PChange" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Volume" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Shares" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="TotalValue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
   </EntityType>
   <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Stocks" EntityType="Self.Stock" />

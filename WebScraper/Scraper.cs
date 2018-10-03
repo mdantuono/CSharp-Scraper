@@ -68,7 +68,7 @@ namespace WebScraper
                 newStock.Price = price;
                 newStock.Change = change;
                 newStock.PChange = pchange;
-                newStock.Volume = volume;
+                newStock.Shares = "0";
                 stockList.Add(newStock);
             }
 

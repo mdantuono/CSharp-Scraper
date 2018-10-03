@@ -8,7 +8,8 @@
     <Property Name="Price" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Change" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="PChange" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="Volume" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Shares" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="TotalValue" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityContainer Name="StockDBModelStoreContainer">
     <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />

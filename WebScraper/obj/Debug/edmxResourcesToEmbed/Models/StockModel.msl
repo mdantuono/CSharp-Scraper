@@ -8,7 +8,8 @@
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Change" ColumnName="Change" />
           <ScalarProperty Name="PChange" ColumnName="PChange" />
-          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="Shares" ColumnName="Shares" />
+          <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

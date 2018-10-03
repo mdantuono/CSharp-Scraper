@@ -13,7 +13,8 @@
           <Property Name="Price" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Change" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="PChange" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="Volume" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Shares" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="TotalValue" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityContainer Name="StockDBModelStoreContainer">
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
@@ -25,12 +26,18 @@
         <EntityType Name="Stock">
           <Key>
             <PropertyRef Name="Symbol" />
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="Change" />
+            <PropertyRef Name="PChange" />
+            <PropertyRef Name="Shares" />
+            <PropertyRef Name="TotalValue" />
           </Key>
           <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Change" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="PChange" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Volume" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Shares" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TotalValue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
@@ -48,7 +55,8 @@
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Change" ColumnName="Change" />
                 <ScalarProperty Name="PChange" ColumnName="PChange" />
-                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="TotalValue" ColumnName="TotalValue" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -18,6 +18,7 @@ namespace WebScraper.Models
         public string Price { get; set; }
         public string Change { get; set; }
         public string PChange { get; set; }
-        public string Volume { get; set; }
+        public string Shares { get; set; }
+        public string TotalValue { get; set; }
     }
 }
