@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebScraper.Models;
+using System.Data.SqlClient;
 
 namespace WebScraper.Controllers
 {
@@ -136,6 +137,7 @@ namespace WebScraper.Controllers
             Scraper testScraper = new Scraper();
             Stock newStock = testScraper.TestScrape();
             db.Stocks.Add(newStock);
+            db.SaveChanges();
             return RedirectToAction("Index");
         }
     }

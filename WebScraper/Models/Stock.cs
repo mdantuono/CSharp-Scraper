@@ -15,9 +15,9 @@ namespace WebScraper.Models
     public partial class Stock
     {
         public string Symbol { get; set; }
-        public double Price { get; set; }
-        public double Change { get; set; }
-        public double PChange { get; set; }
-        public double Volume { get; set; }
+        public decimal Price { get; set; }
+        public decimal Change { get; set; }
+        public decimal PChange { get; set; }
+        public decimal Volume { get; set; }
     }
 }

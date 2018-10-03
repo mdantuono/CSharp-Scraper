@@ -14,7 +14,7 @@ namespace WebScraper
         public Scraper()
         { }
 
-        public void Scrape()
+        public List<Stock> Scrape()
         {
             // Add (--headless) to chromeoptions to block window from popping up
             //ChromeOptions options = new ChromeOptions();
@@ -52,17 +52,28 @@ namespace WebScraper
 
             Console.WriteLine("\nThere are " + count + " stocks in the list\n");
 
+            // Create list to store stocks
+            List<Stock> stockList = new List<Stock>();
+
             //Loop to iterate through names and prices of stocks
             for (int i = 1; i <= count; i++)
             {
                 var symbol = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[1]/span/a")).Text;
                 var price = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[2]/span")).Text;
-
-                Console.WriteLine(symbol + " " + price);
+                var change = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[3]/span")).Text;
+                var pchange = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[4]/span")).Text;
+                var volume = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[7]/span")).Text;
+                Stock newStock = new Stock();
+                newStock.Symbol = symbol;
+                newStock.Price = decimal(price);
+                newStock.Change = change;
+                newStock.PChange = pchange;
+                newStock.Volume = volume;
+                stockList.Add();
             }
 
-            Console.WriteLine("\nI gotchu fam.\n");
             driver.Quit();
+            return stockList;
         }
 
         public Stock TestScrape()
@@ -70,14 +81,13 @@ namespace WebScraper
             Stock newStock = new Stock
             {
                 Symbol = "TSLA",
-                Price = 355,
-                Change = 3.04,
-                PChange = 1.00,
+                Price = 355.00M,
+                Change = 3.04M,
+                PChange = 1.00M,
                 Volume = 1000
             };
 
             return newStock;
-
             
         }
     }

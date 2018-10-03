@@ -4,11 +4,11 @@
 warning 6002: The table/view 'StockDB.dbo.Stock' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Stock">
     <Key>
-      <PropertyRef Name="Symbol" />
       <PropertyRef Name="Price" />
       <PropertyRef Name="Change" />
       <PropertyRef Name="PChange" />
       <PropertyRef Name="Volume" />
+      <PropertyRef Name="Symbol" />
     </Key>
     <Property Name="Symbol" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Price" Type="float" Nullable="false" />
