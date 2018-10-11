@@ -10,8 +10,6 @@ SCRAPER TODO:
 	- PASSWORD
 	- NAME
 	- STOCK PORTFOLIO (LIST)
-	- WALLET BALANCE
-	- PORTFOLIO BALANCE
 
 
 ---- STOCK PAGE TABLE ----
@@ -24,3 +22,20 @@ SCRAPER TODO:
 																	----
 --------------------------
 
+SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + stock.Symbol + ")", conn); /*needs connection string as second part of SqlCommand*/
+            int stockExists = (int)checkIfStockExists.ExecuteScalar(); // Returns the first instance of a match
+            if (stockExists > 0) // If stock exists, update Price, Change, % Change, Volume, and Market Cap
+            {
+                SqlCommand("UPDATE Stock 
+							SET Price = " + stock.Price + ", 
+							Change = " + stock.Change + ", 
+							PChange = " + stock.PChange + ", 
+							Volume = " + stock.Volume + ", 
+							MarketCap = " + stock.MarketCap + " 
+							" WHERE (Symbol = " + stock.Symbol + ")", conn);
+            }
+            else // If not, add new stock to database
+            {
+                db.Stocks.Add(newStock); 
+                db.SaveChanges();
+            }
