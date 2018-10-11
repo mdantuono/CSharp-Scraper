@@ -209,22 +209,22 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Stock.cs">
-      <DependentUpon>StockModel.tt</DependentUpon>
+      <DependentUpon>StockDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StockModel.Context.cs">
+    <Compile Include="Models\StockDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StockModel.Context.tt</DependentUpon>
+      <DependentUpon>StockDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StockModel.cs">
+    <Compile Include="Models\StockDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StockModel.tt</DependentUpon>
+      <DependentUpon>StockDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\StockModel.Designer.cs">
+    <Compile Include="Models\StockDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StockModel.edmx</DependentUpon>
+      <DependentUpon>StockDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scraper.cs" />
@@ -244,15 +244,15 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Models\StockModel.Context.tt">
+    <Content Include="Models\StockDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StockModel.edmx</DependentUpon>
-      <LastGenOutput>StockModel.Context.cs</LastGenOutput>
+      <DependentUpon>StockDB.edmx</DependentUpon>
+      <LastGenOutput>StockDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\StockModel.tt">
+    <Content Include="Models\StockDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>StockModel.edmx</DependentUpon>
-      <LastGenOutput>StockModel.cs</LastGenOutput>
+      <DependentUpon>StockDB.edmx</DependentUpon>
+      <LastGenOutput>StockDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -276,12 +276,12 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <EntityDeploy Include="Models\StockModel.edmx">
+    <EntityDeploy Include="Models\StockDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StockModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>StockDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\StockModel.edmx.diagram">
-      <DependentUpon>StockModel.edmx</DependentUpon>
+    <Content Include="Models\StockDB.edmx.diagram">
+      <DependentUpon>StockDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

@@ -16,8 +16,8 @@
         <th>Last Price</th>
         <th>Change</th>
         <th>% Change</th>
-        <th>Shares</th>
-        <th>Total Value</th>
+        <th>Volume</th>
+        <th>Market Cap</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -35,16 +35,16 @@
             %@Html.DisplayFor(modelItem => item.PChange)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Shares)
+            @Html.DisplayFor(modelItem => item.Volume)
         </td>
         <td>
-            $@Html.DisplayFor(modelItem => item.TotalValue)
+            $@Html.DisplayFor(modelItem => item.MarketCap)
         </td>
-        <td>
+        @*<td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        </td>*@
     </tr>
 }
 

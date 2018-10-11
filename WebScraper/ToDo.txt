@@ -16,10 +16,11 @@ SCRAPER TODO:
 
 ---- STOCK PAGE TABLE ----
 
- SYMBOL		LAST PRICE		CHANGE		% CHANGE		# OF SHARES		TOTAL VALUE
+ SYMBOL		LAST PRICE		CHANGE		% CHANGE	 VOLUME		MARKET CAP
  
-  ---          $--           $--          %---              ---            $---
+  ---          $--           $--          %---         ---            $---
 
-																PORTFOLIO NET VALUE
-																		----
+														PORTFOLIO NET VALUE
+																	----
 --------------------------
+

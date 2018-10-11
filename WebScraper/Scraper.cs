@@ -63,12 +63,14 @@ namespace WebScraper
                 var change = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[3]/span")).Text;
                 var pchange = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[4]/span")).Text;
                 var volume = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[7]/span")).Text;
+                var marketcap = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[13]/span")).Text;
                 Stock newStock = new Stock();
                 newStock.Symbol = symbol;
                 newStock.Price = price;
                 newStock.Change = change;
                 newStock.PChange = pchange;
-                newStock.Shares = "1";
+                newStock.Volume = volume;
+                newStock.MarketCap = marketcap;
                 stockList.Add(newStock);
             }
 
@@ -84,7 +86,8 @@ namespace WebScraper
                 Price = "355.00",
                 Change = "3.04",
                 PChange = "1.00",
-                Shares = "10",
+                Volume = "10",
+                MarketCap = "10B"
                 
             };
 

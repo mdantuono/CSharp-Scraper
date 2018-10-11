@@ -129,7 +129,19 @@ namespace WebScraper.Controllers
         public ActionResult Scrape()
         {
             Scraper myScraper = new Scraper();
-            myScraper.Scrape();
+            List<Stock> stockList = myScraper.Scrape();
+            // Open SQL connection
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+
+            foreach (Stock stock in stockList)
+            {
+                db.Stocks.Add(stock);
+            }
+
+            db.SaveChanges();
+            conn.Close();
+
             return RedirectToAction("Index");
         }
 
@@ -142,20 +154,12 @@ namespace WebScraper.Controllers
             Stock newStock = testScraper.TestScrape();
 
             SqlConnection conn = new SqlConnection(connString);
-            // Check if stock is already in database
+
             conn.Open();
-            SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + newStock.Symbol + ")", conn); /*needs connection string as second part of SqlCommand*/
-            int stockExists = (int)checkIfStockExists.ExecuteScalar();
-            if (stockExists > 0)
-            {
-                SqlCommand editDuplicateStock = new SqlCommand("UPDATE Stock SET Shares += " + newStock.Shares + "WHERE (Symbol = " + newStock.Symbol + ")", conn);
-            }
-            else
-            {
-                db.Stocks.Add(newStock);
-                db.SaveChanges();
-            }
+            db.Stocks.Add(newStock);
+            db.SaveChanges();
             conn.Close();
+
             return RedirectToAction("Index"); 
             
             
