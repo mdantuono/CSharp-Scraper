@@ -3,11 +3,13 @@
 @{
     ViewBag.Title = "Index";
 }
+@Styles.Render("~/Content/custom.css")
 
 <h2>Stocks</h2>
 
 <p>This page will show your stocks portfolio.</p>
 <button class="btn btn-success text-center">@Html.ActionLink("Run Scraper", "Scrape", "Stocks")</button>
+<div class="lds-ring"><div></div><div></div><div></div><div></div></div>
 @*<button class="btn">@Html.ActionLink("Test Scrape", "TestScrape", "Stocks")</button>*@
 <br /><br />
 <table class="table">
@@ -20,32 +22,33 @@
         <th>Market Cap</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Symbol)
-        </td>
-        <td>
-            $@Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            $@Html.DisplayFor(modelItem => item.Change)
-        </td>
-        <td>
-            %@Html.DisplayFor(modelItem => item.PChange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Volume)
-        </td>
-        <td>
-            $@Html.DisplayFor(modelItem => item.MarketCap)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>*@
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Symbol)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.Change)
+            </td>
+            <td>
+                %@Html.DisplayFor(modelItem => item.PChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                $@Html.DisplayFor(modelItem => item.MarketCap)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+        </tr>
+    }
 
 </table>

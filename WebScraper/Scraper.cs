@@ -21,7 +21,8 @@ namespace WebScraper
             options.AddArgument("--headless");
 
             // Initiate new ChromeDriver called driver and navigate to login URL
-            IWebDriver driver = new ChromeDriver();
+            IWebDriver driver = new ChromeDriver(options);
+            
             driver.Navigate().GoToUrl("https://login.yahoo.com/config/login?.src=finance&.intl=us&.done=https%3A%2F%2Ffinance.yahoo.com%2F");
             driver.Manage().Window.Maximize(); 
 
@@ -64,6 +65,7 @@ namespace WebScraper
                 var pchange = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[4]/span")).Text;
                 var volume = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[7]/span")).Text;
                 var marketcap = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[13]/span")).Text;
+
                 Stock newStock = new Stock();
                 newStock.Symbol = symbol;
                 newStock.Price = price;
