@@ -17,8 +17,8 @@ namespace WebScraper
         public List<Stock> Scrape()
         {
             // Add (--headless) to chromeoptions to block window from popping up
-            //ChromeOptions options = new ChromeOptions();
-            //options.AddArgument("--headless");
+            ChromeOptions options = new ChromeOptions();
+            options.AddArgument("--headless");
 
             // Initiate new ChromeDriver called driver and navigate to login URL
             IWebDriver driver = new ChromeDriver();

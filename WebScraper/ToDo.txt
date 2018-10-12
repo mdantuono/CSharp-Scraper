@@ -24,7 +24,7 @@ SCRAPER TODO:
 																	----
 --------------------------
 
-SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + stock.Symbol + ")", conn); /*needs connection string as second part of SqlCommand*/
+SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE (Symbol = " + stock.Symbol + ")", conn); // needs connection string as second part of SqlCommand
             int stockExists = (int)checkIfStockExists.ExecuteScalar(); // Returns the first instance of a match
             if (stockExists > 0) // If stock exists, update Price, Change, % Change, Volume, and Market Cap
             {
@@ -38,6 +38,6 @@ SqlCommand checkIfStockExists = new SqlCommand("SELECT COUNT(*) FROM Stock WHERE
             }
             else // If not, add new stock to database
             {
-                db.Stocks.Add(newStock); 
+                db.Stocks.Add(stock); 
                 db.SaveChanges();
             }

@@ -129,7 +129,9 @@ namespace WebScraper.Controllers
         public ActionResult Scrape()
         {
             Scraper myScraper = new Scraper();
+            Console.WriteLine("Starting scrape");
             List<Stock> stockList = myScraper.Scrape();
+            Console.WriteLine("Scrape finished");
             // Open SQL connection
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
