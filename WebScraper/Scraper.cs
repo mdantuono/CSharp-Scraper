@@ -17,11 +17,11 @@ namespace WebScraper
         public List<Stock> Scrape()
         {
             // Add (--headless) to chromeoptions to block window from popping up
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--headless");
+            //ChromeOptions options = new ChromeOptions();
+            //options.AddArgument("--headless");
 
             // Initiate new ChromeDriver called driver and navigate to login URL
-            IWebDriver driver = new ChromeDriver(options);
+            IWebDriver driver = new ChromeDriver();
             
             driver.Navigate().GoToUrl("https://login.yahoo.com/config/login?.src=finance&.intl=us&.done=https%3A%2F%2Ffinance.yahoo.com%2F");
             driver.Manage().Window.Maximize(); 
@@ -51,7 +51,7 @@ namespace WebScraper
             System.Collections.ObjectModel.ReadOnlyCollection<IWebElement> items = list.FindElements(By.TagName("tr"));
             count = items.Count;
 
-            Console.WriteLine("\nThere are " + count + " stocks in the list\n");
+            //Console.WriteLine("\nThere are " + count + " stocks in the list\n");
 
             // Create list to store stocks
             List<Stock> stockList = new List<Stock>();
@@ -73,6 +73,7 @@ namespace WebScraper
                 newStock.PChange = pchange;
                 newStock.Volume = volume;
                 newStock.MarketCap = marketcap;
+
                 stockList.Add(newStock);
             }
 
