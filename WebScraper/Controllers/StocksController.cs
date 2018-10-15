@@ -128,6 +128,8 @@ namespace WebScraper.Controllers
 
         public ActionResult Scrape()
         {
+            // Show loading animation -- TODO
+
             Scraper myScraper = new Scraper();
             
             // Run scraper and save data to list stockList
@@ -144,6 +146,8 @@ namespace WebScraper.Controllers
 
             db.SaveChanges();
             conn.Close();
+
+            // Stop loading animation -- TODO
 
             return RedirectToAction("Index");
         }
