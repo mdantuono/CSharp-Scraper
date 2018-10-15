@@ -65,7 +65,7 @@ namespace WebScraper
                 var pchange = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[4]/span")).Text;
                 var volume = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[7]/span")).Text;
                 var marketcap = driver.FindElement(By.XPath("//*[@id=\"main\"]/section/section[2]/div[2]/table/tbody/tr[" + i + "]/td[13]/span")).Text;
-
+                
                 Stock newStock = new Stock();
                 newStock.Symbol = symbol;
                 newStock.Price = price;

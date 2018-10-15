@@ -9,7 +9,7 @@
 
 <p>This page will show your stocks portfolio.</p>
 <button class="btn btn-success bg-white">@Html.ActionLink("Run Scraper", "Scrape", "Stocks")</button>
-<div runat="server" id="loader" class="lds-ring center"><div></div><div></div><div></div><div></div></div>
+<div id="myLoader" runat="server" class="lds-ring center" style="visibility:hidden"><div></div><div></div><div></div><div></div></div>
 @*<button class="btn">@Html.ActionLink("Test Scrape", "TestScrape", "Stocks")</button>*@
 <br /><br />
 <table class="table">

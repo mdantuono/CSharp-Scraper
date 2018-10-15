@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using WebScraper.Models;
 using System.Data.SqlClient;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 
 namespace WebScraper.Controllers
 {
