@@ -5,11 +5,17 @@
 }
 @Styles.Render("~/Content/custom.css")
 
+@*<script type="text/javascript">
+    var loader = document.getElementById("myLoader");
+    var button = document.getElementById("scrapebtn");
+    button.onclick(loader.visibility = "visible");
+</script>*@
+
 <h2>Stocks</h2>
 
 <p>This page will show your stocks portfolio.</p>
-<button class="btn btn-success bg-white">@Html.ActionLink("Run Scraper", "Scrape", "Stocks")</button>
-<div id="myLoader" runat="server" class="lds-ring center" style="visibility:hidden"><div></div><div></div><div></div><div></div></div>
+<button id="scrapebtn" class="btn btn-success bg-white">@Html.ActionLink("Run Scraper", "Scrape", "Stocks")</button>
+<div id="myLoader" class="lds-ring center" style="visibility:hidden"><div></div><div></div><div></div><div></div></div>
 @*<button class="btn">@Html.ActionLink("Test Scrape", "TestScrape", "Stocks")</button>*@
 <br /><br />
 <table class="table">

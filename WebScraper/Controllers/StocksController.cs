@@ -129,7 +129,8 @@ namespace WebScraper.Controllers
 
         public ActionResult Scrape()
         {
-            // Show loading animation -- TODO
+            //// Show loading animation -- TODO
+            //myLoader.Style["visibility"] = visible;
 
             Scraper myScraper = new Scraper();
             
@@ -148,7 +149,8 @@ namespace WebScraper.Controllers
             db.SaveChanges();
             conn.Close();
 
-            // Stop loading animation -- TODO
+            //// Stop loading animation -- TODO
+            //myLoader.Style["visibility"] = hidden;
 
             return RedirectToAction("Index");
         }
