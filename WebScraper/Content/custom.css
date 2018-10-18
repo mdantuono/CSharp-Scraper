@@ -1,5 +1,6 @@
 ﻿.bg {
     background-image: url("./images/background.jpg");
+    /*background-color: rgb(194, 194, 214);*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
