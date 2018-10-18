@@ -300,23 +300,11 @@
             </summary>
             <param name="e">A <see cref="T:OpenQA.Selenium.Support.Events.WebElementEventArgs"/> that contains the event data.</param>
         </member>
-        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.OnElementValueChanging(OpenQA.Selenium.Support.Events.WebElementEventArgs)">
-            <summary>
-            Raises the <see cref="E:OpenQA.Selenium.Support.Events.EventFiringWebDriver.ElementValueChanging"/> event.
-            </summary>
-            <param name="e">A <see cref="T:OpenQA.Selenium.Support.Events.WebElementEventArgs"/> that contains the event data.</param>
-        </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.OnElementValueChanging(OpenQA.Selenium.Support.Events.WebElementValueEventArgs)">
             <summary>
             Raises the <see cref="E:OpenQA.Selenium.Support.Events.EventFiringWebDriver.ElementValueChanging"/> event.
             </summary>
             <param name="e">A <see cref="T:OpenQA.Selenium.Support.Events.WebElementValueEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.OnElementValueChanged(OpenQA.Selenium.Support.Events.WebElementEventArgs)">
-            <summary>
-            Raises the <see cref="E:OpenQA.Selenium.Support.Events.EventFiringWebDriver.ElementValueChanged"/> event.
-            </summary>
-            <param name="e">A <see cref="T:OpenQA.Selenium.Support.Events.WebElementEventArgs"/> that contains the event data.</param>
         </member>
         <member name="M:OpenQA.Selenium.Support.Events.EventFiringWebDriver.OnElementValueChanged(OpenQA.Selenium.Support.Events.WebElementValueEventArgs)">
             <summary>
