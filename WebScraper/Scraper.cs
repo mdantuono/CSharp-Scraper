@@ -27,7 +27,7 @@ namespace WebScraper
             IWebDriver driver = new ChromeDriver(options);
             
             driver.Navigate().GoToUrl("https://login.yahoo.com/config/login?.src=finance&.intl=us&.done=https%3A%2F%2Ffinance.yahoo.com%2F");
-            driver.Manage().Window.Maximize(); 
+            driver.Manage().Window.Maximize();
 
             // Input username field, submit
             IWebElement username = driver.FindElement(By.Name("username"));
