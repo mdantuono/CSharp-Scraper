@@ -37,6 +37,12 @@ namespace WebScraper.Controllers
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
 
+            // Delete stocks from database in order to refresh them
+            SqlCommand deleteAll = new SqlCommand("DELETE FROM Stock", conn);
+            deleteAll.ExecuteNonQuery();
+            db.SaveChanges();
+
+            // Add new stock values to database
             foreach (Stock stock in stockList)
             {
                 db.Stocks.Add(stock);
