@@ -53,6 +53,9 @@ namespace WebScraper.Controllers
 
         private static string connString = @"data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
 
+
+        // Below are some test routes used in production
+
         public ActionResult TestScrape()
         {
             
@@ -69,6 +72,19 @@ namespace WebScraper.Controllers
             return RedirectToAction("Index"); 
             
             
+        }
+
+        public ActionResult DeleteAllStocks()
+        {
+            SqlConnection conn = new SqlConnection(connString);
+            conn.Open();
+            SqlCommand deleteAll = new SqlCommand("DELETE FROM Stock", conn);
+            deleteAll.ExecuteNonQuery();
+            db.SaveChanges();
+            conn.Close();
+            
+
+            return RedirectToAction("Index");
         }
     }
 }
