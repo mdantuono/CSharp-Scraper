@@ -17,7 +17,8 @@ namespace WebScraper.Controllers
     {
         private StockDBEntities db = new StockDBEntities();
 
-        // GET: Stocks
+        // GET: Stocks\
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Stocks.ToList());
