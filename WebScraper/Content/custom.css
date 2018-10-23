@@ -4,13 +4,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
 }
 
 
 #backdrop {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    background-color: rgba(220, 220, 220, 0.8);
+    padding: 50px;
+    display: block;
 }
 
 
