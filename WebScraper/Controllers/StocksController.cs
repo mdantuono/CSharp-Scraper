@@ -75,7 +75,8 @@ namespace WebScraper.Controllers
             
             
         }
-
+        
+        [Authorize]
         public ActionResult History()
         {
             return View();
