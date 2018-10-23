@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<WebScraper.Models.Stock>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Stocks";
 }
 @Styles.Render("~/Content/custom.css")
 
@@ -9,8 +9,8 @@
 <h2>Stocks</h2>
 
 <p>This page houses your stock portfolio.</p>
-<p>Clicking the button below will run the scraper and update the portfolio.</p>
-@Html.ActionLink("Run Scraper", "Scrape", "Stocks", new { @class = "btn btn-primary" })
+<p>Clicking the button below will run the scraper and update the portfolio. (Scraping may take a few moments)</p>
+@Html.ActionLink("Run Scraper", "Scrape", "Stocks", new { @class = "btn btn-primary", id = "scrapebtn"})
 @*<button class="btn bg-white">@Html.ActionLink("Delete Stocks", "DeleteAllStocks", "Stocks")</button>*@
 <div id="myLoader" class="lds-ring text-center" style="visibility:hidden; width:15px"><div></div><div></div><div></div><div></div></div>
 @*<button class="btn">@Html.ActionLink("Test Scrape", "TestScrape", "Stocks")</button>*@
@@ -50,7 +50,9 @@
                     $@Html.DisplayFor(modelItem => item.MarketCap)
                 </td>
                 <td>
-                    <a href="https://finance.yahoo.com/quote/@item.Symbol"><button class="btn btn-dark">Details</button></a>
+                    <form action="https://finance.yahoo.com/quote/@item.Symbol" method="get">
+                        <button class="btn btn-dark">Details</button>
+                    </form>
                 </td>
             </tr>
         }

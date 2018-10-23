@@ -76,6 +76,12 @@ namespace WebScraper.Controllers
             
         }
 
+        public ActionResult History()
+        {
+            return View();
+        }
+
+        // Just a test route used in production
         public ActionResult DeleteAllStocks()
         {
             SqlConnection conn = new SqlConnection(connString);
