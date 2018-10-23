@@ -352,6 +352,7 @@
     <Content Include="Views\Stocks\Details.cshtml" />
     <Content Include="Views\Stocks\Edit.cshtml" />
     <Content Include="Views\Stocks\Index.cshtml" />
+    <Content Include="Views\Stocks\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
