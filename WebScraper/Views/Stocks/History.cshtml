@@ -8,12 +8,15 @@
 
 <p>This page shows past scrapes done.</p>
 
-<ul>
-
-@foreach (var item in Model) 
-{
-    <li>@Html.DisplayFor(modelItem => item.Symbol)</li>
-    <li>@Html.DisplayFor(modelItem => item.ScrapeTime)</li>
-}
-
-</ul>
+<div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <p>@Html.DisplayFor(modelItem => item.Symbol) - $@Html.DisplayFor(modelItem => item.Price)</p>
+        </div>
+        <div class="col-md-4">
+            <p>Scraped on: @Html.DisplayFor(modelItem => item.ScrapeTime)</p>
+        </div>
+        <hr />
+     }
+</div>

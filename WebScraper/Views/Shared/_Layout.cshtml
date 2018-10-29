@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" type="text/css" href="~/Content/custom.css">
+
+    <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -30,9 +37,9 @@
                     @Html.Partial("_LoginPartial")
 
                     @*<ul class="nav navbar-nav navbar-right">
-            <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Register</a></li>
-            <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
-        </ul>*@
+                            <li class="nav-item"><a href="/Account/Register" id="registerLink" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="/Account/Login" id="loginLink" class="nav-link">Log in</a></li>
+                        </ul>*@
 
                 </div>
             </div>
@@ -49,5 +56,9 @@
         @Scripts.Render("~/bundles/bootstrap")
         @RenderSection("scripts", required: false)
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
 </body>
 </html>
