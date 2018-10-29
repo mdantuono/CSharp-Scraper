@@ -15,7 +15,10 @@ namespace WebScraper.Controllers
 {
     public class StocksController : Controller
     {
+
+        // Establish database connection
         private StockDBEntities db = new StockDBEntities();
+        private static string connString = @"data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
 
         // GET: Stocks\
         [Authorize]
@@ -35,6 +38,11 @@ namespace WebScraper.Controllers
             // Open SQL connection
             SqlConnection conn = new SqlConnection(connString);
             conn.Open();
+
+            // On a new scrape, move stocks into History table
+            SqlCommand moveStocks = new SqlCommand("INSERT INTO History SELECT * FROM Stock", conn);
+            moveStocks.ExecuteNonQuery();
+            db.SaveChanges();
 
             // Delete stocks from database in order to refresh them
             SqlCommand deleteAll = new SqlCommand("DELETE FROM Stock", conn);
@@ -59,13 +67,10 @@ namespace WebScraper.Controllers
             return RedirectToAction("Index");
         }
 
-        private static string connString = @"data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
-
-        
         [Authorize]
         public ActionResult History()
         {
-            return View(db.Stocks.ToList());
+            return View(db.Histories.ToList());
         }
 
         // Just a test route used in production

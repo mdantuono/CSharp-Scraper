@@ -1,4 +1,4 @@
-﻿@model IEnumerable<WebScraper.Models.Stock>
+﻿@model IEnumerable<WebScraper.Models.History>
 
 @{
     ViewBag.Title = "History";
@@ -10,7 +10,7 @@
 
 <ul>
 
-@foreach (var item in Model)
+@foreach (var item in Model) 
 {
     <li>@Html.DisplayFor(modelItem => item.Symbol)</li>
     <li>@Html.DisplayFor(modelItem => item.ScrapeTime)</li>

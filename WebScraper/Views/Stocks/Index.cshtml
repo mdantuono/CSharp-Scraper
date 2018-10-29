@@ -10,18 +10,20 @@
 
 <p>This page houses your stock portfolio.</p>
 <p>Clicking the button below will run the scraper and update the portfolio. (Scraping may take a few moments)</p>
-@Html.ActionLink("Run Scraper", "Scrape", "Stocks", new { @class = "btn btn-primary", id = "scrapebtn"})
+@Html.ActionLink("Run Scraper", "Scrape", "Stocks", new { @class = "btn btn-primary", id = "scrapebtn" })
 @*<button class="btn bg-white">@Html.ActionLink("Delete Stocks", "DeleteAllStocks", "Stocks")</button>*@
 <div id="myLoader" class="lds-ring text-center" style="visibility:hidden; width:15px"><div></div><div></div><div></div><div></div></div>
 @*<button class="btn">@Html.ActionLink("Test Scrape", "TestScrape", "Stocks")</button>*@
 <br /><br />
 
-<p>Last scrape was: <span id="currentTime"></span></p>
 
-<br />
 
 @if (Model.Count() > 0)
 {
+    <p>Last scrape was: @Model.ToArray()[0].ScrapeTime</p>
+
+    <br />
+
     <table class="table">
         <tr>
             <th>Symbol</th>
@@ -34,36 +36,37 @@
 
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Symbol)
-            </td>
-            <td>
-                $@Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                $@Html.DisplayFor(modelItem => item.Change)
-            </td>
-            <td>
-                %@Html.DisplayFor(modelItem => item.PChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Volume)
-            </td>
-            <td>
-                $@Html.DisplayFor(modelItem => item.MarketCap)
-            </td>
-            <td>
-                <form action="https://finance.yahoo.com/quote/@item.Symbol" method="get">
-                    <button class="btn btn-dark">Details</button>
-                </form>
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Symbol)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.Change)
+                </td>
+                <td>
+                    %@Html.DisplayFor(modelItem => item.PChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Volume)
+                </td>
+                <td>
+                    $@Html.DisplayFor(modelItem => item.MarketCap)
+                </td>
+                <td>
+                    <form action="https://finance.yahoo.com/quote/@item.Symbol" method="get">
+                        <button class="btn btn-dark">Details</button>
+                    </form>
+                </td>
+            </tr>
         }
 
     </table>
 
-} else
+}
+else
 {
     <p>No stocks found in database, try running the scraper!</p>
 }

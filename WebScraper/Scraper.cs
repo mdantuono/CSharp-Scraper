@@ -84,6 +84,7 @@ namespace WebScraper
             return stockList;
         }
 
+        // Test route to add stock information
         public Stock TestScrape()
         {
             Stock newStock = new Stock

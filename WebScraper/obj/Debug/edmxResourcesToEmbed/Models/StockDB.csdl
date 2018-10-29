@@ -14,5 +14,24 @@
   </EntityType>
   <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Stocks" EntityType="Self.Stock" />
+    <EntitySet Name="Histories" EntityType="StockDBModel.History" />
   </EntityContainer>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="Symbol" />
+      <PropertyRef Name="Price" />
+      <PropertyRef Name="Change" />
+      <PropertyRef Name="PChange" />
+      <PropertyRef Name="Volume" />
+      <PropertyRef Name="MarketCap" />
+      <PropertyRef Name="ScrapeTime" />
+    </Key>
+    <Property Name="Symbol" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Change" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="PChange" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Volume" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="MarketCap" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ScrapeTime" Type="DateTime" Nullable="false" Precision="7" />
+  </EntityType>
 </Schema>
