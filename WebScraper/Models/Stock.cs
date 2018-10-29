@@ -20,5 +20,6 @@ namespace WebScraper.Models
         public string PChange { get; set; }
         public string Volume { get; set; }
         public string MarketCap { get; set; }
+        public System.DateTime ScrapeTime { get; set; }
     }
 }

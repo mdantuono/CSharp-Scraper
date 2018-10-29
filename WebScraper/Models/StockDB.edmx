@@ -15,6 +15,7 @@
           <Property Name="PChange" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Volume" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="MarketCap" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ScrapeTime" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
         <EntityContainer Name="StockDBModelStoreContainer">
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
@@ -34,6 +35,7 @@
           <Property Name="PChange" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Volume" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="MarketCap" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ScrapeTime" Type="DateTime" Nullable="false" Precision="7" />
         </EntityType>
         <EntityContainer Name="StockDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
@@ -53,6 +55,7 @@
                 <ScalarProperty Name="PChange" ColumnName="PChange" />
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+                <ScalarProperty Name="ScrapeTime" ColumnName="ScrapeTime" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

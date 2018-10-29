@@ -10,6 +10,7 @@
           <ScalarProperty Name="PChange" ColumnName="PChange" />
           <ScalarProperty Name="Volume" ColumnName="Volume" />
           <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+          <ScalarProperty Name="ScrapeTime" ColumnName="ScrapeTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

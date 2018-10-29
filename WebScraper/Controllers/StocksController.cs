@@ -24,9 +24,9 @@ namespace WebScraper.Controllers
             return View(db.Stocks.ToList());
         }
 
+        [Authorize]
         public ActionResult Scrape()
         {
-
             Scraper myScraper = new Scraper();
             
             // Run scraper and save data to list stockList
@@ -48,6 +48,12 @@ namespace WebScraper.Controllers
             }
 
             db.SaveChanges();
+
+            // Must update times because GETDATE() is returning 1/1/0001 00:00:00
+            SqlCommand updateTimes = new SqlCommand("UPDATE Stock SET ScrapeTime = GETDATE()", conn);
+            updateTimes.ExecuteNonQuery();
+
+            db.SaveChanges();
             conn.Close();
 
             return RedirectToAction("Index");
@@ -55,31 +61,11 @@ namespace WebScraper.Controllers
 
         private static string connString = @"data source=MIKEPC;initial catalog=StockDB;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework";
 
-
-        // Below are some test routes used in production
-
-        public ActionResult TestScrape()
-        {
-            
-            Scraper testScraper = new Scraper();
-            Stock newStock = testScraper.TestScrape();
-
-            SqlConnection conn = new SqlConnection(connString);
-
-            conn.Open();
-            db.Stocks.Add(newStock);
-            db.SaveChanges();
-            conn.Close();
-
-            return RedirectToAction("Index"); 
-            
-            
-        }
         
         [Authorize]
         public ActionResult History()
         {
-            return View();
+            return View(db.Stocks.ToList());
         }
 
         // Just a test route used in production

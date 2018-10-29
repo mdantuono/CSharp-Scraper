@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<WebScraper.Models.Stock>
+
 @{
     ViewBag.Title = "History";
 }
@@ -6,3 +7,13 @@
 <h2>History</h2>
 
 <p>This page shows past scrapes done.</p>
+
+<ul>
+
+@foreach (var item in Model)
+{
+    <li>@Html.DisplayFor(modelItem => item.Symbol)</li>
+    <li>@Html.DisplayFor(modelItem => item.ScrapeTime)</li>
+}
+
+</ul>
