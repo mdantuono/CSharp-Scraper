@@ -17,13 +17,13 @@
     <EntitySetMapping Name="Histories">
       <EntityTypeMapping TypeName="StockDBModel.History">
         <MappingFragment StoreEntitySet="History">
-          <ScalarProperty Name="ScrapeTime" ColumnName="ScrapeTime" />
-          <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
-          <ScalarProperty Name="Volume" ColumnName="Volume" />
-          <ScalarProperty Name="PChange" ColumnName="PChange" />
-          <ScalarProperty Name="Change" ColumnName="Change" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Change" ColumnName="Change" />
+          <ScalarProperty Name="PChange" ColumnName="PChange" />
+          <ScalarProperty Name="Volume" ColumnName="Volume" />
+          <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+          <ScalarProperty Name="ScrapeTime" ColumnName="ScrapeTime" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
