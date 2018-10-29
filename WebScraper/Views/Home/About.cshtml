@@ -5,16 +5,25 @@
 
 <br />
 
-<h6>This web scraper was built in Visual Studio by CareerDevs student Michael DAntuono.</h6><br />
+<h6>This web scraper was built in Visual Studio by CareerDevs student Michael DAntuono.</h6>
+<hr />
 <p>Starting in the console stage, the scraper itself took a couple weeks to implemenet. 
     Using Selenium and the ChromeDriver, I was able to navigate through the Yahoo finance website, 
     log in a user, and navigate to the watchlist page and pull stock data to the console. <strong>YES!</strong></p>
 
-<p>Next, I began creating the front end of my ASP.Net application and adding my scraper code to a button press on the /Stocks endpoint. 
+<hr />
+
+<p>Next, I began creating the front end of my ASP.Net application and added my scraper code to run on a button press on the /Stocks endpoint. 
     I then started getting familiar with Microsoft SQL Server. I created my stocks table in Microsoft SQL Server Manager, used the Entity Framework to connect the models to my code,
     and after a few bugs and recreations of my table, finally got my stock data pushing to the database. Lastly, I added some user functionality and made the /Stocks page an authorized route.</p>
 
-<br />
+<hr />
+
+<p>In my last update I created the /Stocks/History route where it displays all of the past scrapes done and on what date the scrape was performed.
+    In creating this, I had some trouble with my database getting the current date (which was returning 01/01/0001 00:00:00 for all dates),
+    however, found a workaround to manually set the date in my code. After some styling, the history page was implemented.</p>
+
+<hr />
 
 <h5>Technologies used in this project include:</h5>
 <ul>
